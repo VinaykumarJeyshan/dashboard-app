@@ -1,3 +1,25 @@
-<h1> {{value.time}} : {{value.location}} </h1>
-<p> Location: {{value.location}} </p>
-<p> Description: {{value.description}} </p>
+<div class="media row">
+    <h3 class="h3-responsive font-weight-bold col-sm-3">{{ value.time }}</h3>
+    <div class="media-body col-sm-12">
+        <span class="badge badge-danger text-center float-right">-</span>
+        <h6 class="mt-0 font-weight-bold">{{ value.subject }}</h6>
+        <hr class="hr-bold" *ngIf="value.location || value.description" />
+        <p class="mb-0" *ngIf="value.location">
+            <!-- <mdb-icon fas icon="location-arrow"></mdb-icon> -->
+            {{ value.location }}
+        </p>
+        <div class="row justify-content-center">
+            <div class="col-sm-10">
+                <div class="card" *ngIf="value.description">
+                    <div class="card-header">
+                        Description
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ value.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
